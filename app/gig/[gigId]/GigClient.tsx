@@ -3,11 +3,11 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { GigProps, ReviewProps, UserProps } from "@/types";
 import Avatar from "@/app/components/Avatar";
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
 import Button from "@/app/components/Button";
 import Reviews from "./Reviews";
+import { UserProps, GigProps, ReviewProps } from "@/types";
 
 interface Props {
   currentUser: UserProps | null;

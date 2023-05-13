@@ -86,8 +86,8 @@ model Review {
 model Conversation {
   id String @id @default(auto()) @map("_id") @db.ObjectId
   conversationId String
-  sellerId String @db.ObjectId
-  buyerId String @db.ObjectId
+  sellerId String
+  buyerId String 
   lastMessage String @default("")
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

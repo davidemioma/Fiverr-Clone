@@ -3,7 +3,7 @@
 import React, { useCallback, useState } from "react";
 import Image from "next/image";
 import qs from "query-string";
-import { GigProps } from "@/types";
+import { GigProps } from "../../types";
 import useFilterModal from "../hooks/useFilterModal";
 import { useRouter, useSearchParams } from "next/navigation";
 import GigCard from "../components/GigCard";

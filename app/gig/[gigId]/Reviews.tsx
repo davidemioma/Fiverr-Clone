@@ -9,7 +9,7 @@ import Button from "@/app/components/Button";
 import Avatar from "@/app/components/Avatar";
 import Input from "@/app/components/input/Input";
 import Categories from "@/app/components/input/Categories";
-import { GigProps, ReviewProps, UserProps } from "@/types";
+import { GigProps, ReviewProps, UserProps } from "../../../types";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 
 interface Props {

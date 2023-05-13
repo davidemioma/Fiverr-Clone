@@ -5,7 +5,7 @@ import Image from "next/image";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import { useRouter } from "next/navigation";
-import { OrderProps, UserProps } from "@/types";
+import { OrderProps, UserProps } from "../../types";
 
 interface Props {
   orders: OrderProps[];

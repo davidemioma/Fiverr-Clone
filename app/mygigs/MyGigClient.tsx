@@ -3,7 +3,7 @@
 import React, { useCallback, useState } from "react";
 import Image from "next/image";
 import axios from "axios";
-import { GigProps } from "@/types";
+import { GigProps } from "../../types";
 import { toast } from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import Button from "../components/Button";

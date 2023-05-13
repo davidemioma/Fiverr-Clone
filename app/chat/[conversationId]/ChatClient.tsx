@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 import Message from "./Message";
 import Input from "@/app/components/input/Input";
 import Button from "@/app/components/Button";
-import { ConversationProps, MessageProps, UserProps } from "@/types";
+import { ConversationProps, MessageProps, UserProps } from "../../../types";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 
 interface Props {
