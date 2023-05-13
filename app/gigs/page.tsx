@@ -5,11 +5,11 @@ import EmptyState from "../components/EmptyState";
 import { ParamsProps, getGigs } from "../action/getGigs";
 
 interface SearchParamsProps {
-  searchParams: ParamsProps;
+  searchParams?: ParamsProps;
 }
 
 const Gigs = async ({ searchParams }: SearchParamsProps) => {
-  const gigs = await getGigs(searchParams);
+  const gigs = await getGigs(searchParams || {});
 
   if (gigs.length === 0) {
     return (
