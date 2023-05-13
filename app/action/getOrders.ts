@@ -11,10 +11,12 @@ export const getOrders = async () => {
 
     if (!currentUser.isSeller) {
       query.buyerId = currentUser.id;
+      query.isCompleted = true;
     }
 
     if (currentUser.isSeller) {
       query.sellerId = currentUser.id;
+      query.isCompleted = true;
     }
 
     const orders = await prisma.order.findMany({
