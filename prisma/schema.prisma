@@ -1,0 +1,107 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+//npm i -D prisma
+//npx prisma init
+//npx prisma db push - to push to your database.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  username String? 
+  email String? @unique
+  image String?
+  hashedPassword String?
+  country String? 
+  phoneNo String? @unique
+  bio String?
+  isSeller Boolean @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  gigs Gig[]
+  reviews Review[]
+  messages Message[]
+}
+
+model Gig {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  userId String @db.ObjectId
+  title String
+  description String
+  totalRating Int @default(0)
+  numberOfRatings Int @default(0)
+  category String
+  price Int
+  coverImage String
+  images String[] @default([])
+  features String[] @default([])
+  shortTitle String
+  shortDesc String
+  deliveryTime Int
+  revisionNo Int
+  salesNo Int @default(0)
+  createdAt DateTime @default(now())
+
+  orders Order[]
+  reviews Review[]
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Order {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  gigId String @db.ObjectId
+  title String
+  price Float
+  image String
+  sellerId String
+  buyerId String
+  isCompleted Boolean @default(false)
+  payment_intent String
+  createdAt DateTime @default(now())
+
+  gig Gig @relation(fields: [gigId], references: [id], onDelete: Cascade)
+}
+
+model Review {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  gigId String @db.ObjectId
+  userId String @db.ObjectId
+  rating Int
+  review String
+  createdAt DateTime @default(now())
+
+  gig Gig @relation(fields: [gigId], references: [id], onDelete: Cascade)
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Conversation {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  conversationId String
+  sellerId String @db.ObjectId
+  buyerId String @db.ObjectId
+  lastMessage String @default("")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  messages Message[]
+}
+
+model Message {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  conversationId String @db.ObjectId
+  senderId String @db.ObjectId
+  message String
+  createdAt DateTime @default(now())
+
+  conversation Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  user User @relation(fields: [senderId], references: [id], onDelete: Cascade)
+}
