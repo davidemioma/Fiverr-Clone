@@ -18,7 +18,7 @@ const CheckoutForm = () => {
 
   const [message, setMessage] = useState("");
 
-  const [email, setEmail] = useState();
+  const [email, setEmail] = useState("");
 
   useEffect(() => {
     if (!stripe) {
