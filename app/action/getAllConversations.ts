@@ -9,12 +9,12 @@ export const getAllConversations = async () => {
 
     let query: any = {};
 
-    if (currentUser.isSeller) {
-      query.sellerId = currentUser.id;
+    if (currentUser?.isSeller) {
+      query.sellerId = currentUser?.id;
     }
 
-    if (!currentUser.isSeller) {
-      query.buyerId = currentUser.id;
+    if (!currentUser?.isSeller) {
+      query.buyerId = currentUser?.id;
     }
 
     const conversations = await prisma.conversation.findMany({
