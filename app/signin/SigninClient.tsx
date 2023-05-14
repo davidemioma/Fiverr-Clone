@@ -29,7 +29,7 @@ const SigninClient = () => {
 
     signIn("credentials", {
       ...data,
-      redirect: true,
+      redirect: false,
     }).then((callback) => {
       setLoading(false);
 
