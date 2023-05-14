@@ -36,6 +36,8 @@ const SigninClient = () => {
       if (callback?.ok) {
         toast.success("Login successful");
 
+        router.refresh();
+
         router.push("/");
       }
 
