@@ -9,11 +9,7 @@ import {
 } from "@stripe/react-stripe-js";
 import { UserProps } from "@/types";
 
-interface Props {
-  currentUser: UserProps | null;
-}
-
-const CheckoutForm = ({ currentUser }: Props) => {
+const CheckoutForm = () => {
   const stripe = useStripe();
 
   const elements = useElements();
@@ -22,7 +18,7 @@ const CheckoutForm = ({ currentUser }: Props) => {
 
   const [message, setMessage] = useState("");
 
-  const [email, setEmail] = useState(currentUser?.email);
+  const [email, setEmail] = useState();
 
   useEffect(() => {
     if (!stripe) {

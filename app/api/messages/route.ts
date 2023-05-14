@@ -19,9 +19,9 @@ export async function POST(request: Request) {
     },
   });
 
-  await prisma.conversation.updateMany({
+  await prisma.conversation.update({
     where: {
-      conversationId,
+      id: conversationId,
     },
     data: {
       lastMessage: message,

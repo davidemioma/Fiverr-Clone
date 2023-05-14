@@ -45,7 +45,7 @@ const PayClient = ({ gig, currentUser }: Props) => {
           }}
           stripe={stripePromise}
         >
-          <CheckoutForm currentUser={currentUser} />
+          <CheckoutForm />
         </Elements>
       )}
     </div>
