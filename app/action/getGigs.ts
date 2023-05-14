@@ -1,44 +1,46 @@
 import prisma from "../../lib/prismaDb";
 
-export interface ParamsProps {
-  min?: number;
-  max?: number;
-  sort?: string;
-  search?: string;
-}
+// export interface ParamsProps {
+//   min?: number;
+//   max?: number;
+//   sort?: string;
+//   search?: string;
+// }
 
-export const getGigs = async (params: ParamsProps) => {
+//params: ParamsProps
+
+export const getGigs = async () => {
   try {
-    const { min, max, sort, search } = params;
+    // const { min, max, sort, search } = params;
 
-    let query: any = {};
+    // let query: any = {};
 
-    if (min && max) {
-      if (min > 0 && max > 0) {
-        query.price = {
-          gte: +min,
-          lte: +max,
-        };
-      }
-    }
+    // if (min && max) {
+    //   if (min > 0 && max > 0) {
+    //     query.price = {
+    //       gte: +min,
+    //       lte: +max,
+    //     };
+    //   }
+    // }
 
-    if (search) {
-      query.title = search;
-    }
+    // if (search) {
+    //   query.title = search;
+    // }
 
-    let orderByQuery: any = {};
+    // let orderByQuery: any = {};
 
-    if (sort === "createdAt") {
-      orderByQuery.createdAt = "desc";
-    }
+    // if (sort === "createdAt") {
+    //   orderByQuery.createdAt = "desc";
+    // }
 
-    if (sort === "sales") {
-      orderByQuery.salesNo = "desc";
-    }
+    // if (sort === "sales") {
+    //   orderByQuery.salesNo = "desc";
+    // }
 
     const gigs = await prisma.gig.findMany({
-      where: query,
-      orderBy: orderByQuery,
+      // where: query,
+      // orderBy: orderByQuery,
       include: {
         user: true,
       },
