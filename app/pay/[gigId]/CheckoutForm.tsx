@@ -59,10 +59,12 @@ const CheckoutForm = () => {
 
     setIsLoading(true);
 
+    const url = "https://fiverr-clone-sepia.vercel.app";
+
     const { error } = await stripe.confirmPayment({
       elements,
       confirmParams: {
-        return_url: "http://localhost:3002/success",
+        return_url: `${url ? url : "http://localhost:3002"}/success`,
       },
     });
 
