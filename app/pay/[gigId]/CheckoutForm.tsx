@@ -7,8 +7,13 @@ import {
   useStripe,
   useElements,
 } from "@stripe/react-stripe-js";
+import { UserProps } from "@/types";
 
-const CheckoutForm = () => {
+interface Props {
+  currentUser: UserProps | null;
+}
+
+const CheckoutForm = ({ currentUser }: Props) => {
   const stripe = useStripe();
 
   const elements = useElements();
@@ -17,7 +22,7 @@ const CheckoutForm = () => {
 
   const [message, setMessage] = useState("");
 
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState(currentUser?.email);
 
   useEffect(() => {
     if (!stripe) {
@@ -59,12 +64,10 @@ const CheckoutForm = () => {
 
     setIsLoading(true);
 
-    const url = "https://fiverr-clone-sepia.vercel.app";
-
     const { error } = await stripe.confirmPayment({
       elements,
       confirmParams: {
-        return_url: `${url ? url : "http://localhost:3002"}/success`,
+        return_url: `${process.env.BASE_URL as string}/success`,
       },
     });
 
@@ -83,6 +86,7 @@ const CheckoutForm = () => {
         id="link-authentication-element"
         onChange={(e: any) => setEmail(e?.target?.value)}
       />
+
       <PaymentElement id="payment-element" options={{ layout: "tabs" }} />
 
       <button

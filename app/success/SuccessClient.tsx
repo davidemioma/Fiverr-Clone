@@ -13,11 +13,11 @@ const SuccessClient = ({ payment_intent }: Props) => {
 
   useEffect(() => {
     axios
-      .patch("/api/orders", { payment_intent })
+      .put("/api/orders", { payment_intent })
       .then(() => {
         setTimeout(() => {
           router.push("/orders");
-        }, 4000);
+        }, 2000);
       })
       .catch((err) => {
         console.log(err);
