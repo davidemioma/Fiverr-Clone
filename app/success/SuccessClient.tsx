@@ -12,19 +12,16 @@ const SuccessClient = ({ payment_intent }: Props) => {
   const router = useRouter();
 
   useEffect(() => {
-    const makeRequest = async () => {
-      try {
-        await axios.patch("/api/orders", { payment_intent });
-
+    axios
+      .patch("/api/orders", { payment_intent })
+      .then(() => {
         setTimeout(() => {
           router.push("/orders");
-        }, 2000);
-      } catch (err) {
+        }, 4000);
+      })
+      .catch((err) => {
         console.log(err);
-      }
-    };
-
-    makeRequest();
+      });
   }, []);
 
   return (
