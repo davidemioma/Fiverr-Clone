@@ -2,16 +2,16 @@ import React from "react";
 import GigsClient from "./GigsClient";
 import Container from "../components/Container";
 import EmptyState from "../components/EmptyState";
-import { getGigs } from "../action/getGigs";
+import { getGigs, ParamsProps } from "../action/getGigs";
 
-// interface SearchParamsProps {
-//   searchParams?: ParamsProps;
-// }
+interface SearchParamsProps {
+  searchParams: ParamsProps;
+}
 
-//{ searchParams }: SearchParamsProps
+export const dynamic = "force-dynamic";
 
-const Gigs = async () => {
-  const gigs = await getGigs();
+const Gigs = async ({ searchParams }: SearchParamsProps) => {
+  const gigs = await getGigs(searchParams);
 
   if (gigs.length === 0) {
     return (
