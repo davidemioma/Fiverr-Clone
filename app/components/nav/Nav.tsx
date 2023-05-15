@@ -107,10 +107,12 @@ const Nav = ({ currentUser }: Props) => {
                       />
                     )}
 
-                    <NavLink
-                      label="Orders"
-                      onClick={() => router.push("/orders")}
-                    />
+                    {!currentUser.isSeller && (
+                      <NavLink
+                        label="Orders"
+                        onClick={() => router.push("/orders")}
+                      />
+                    )}
 
                     <NavLink
                       label="Messages"
