@@ -78,19 +78,21 @@ const OrderClient = ({ orders, currentUser }: Props) => {
               <td>{order.price}</td>
 
               <td>
-                <button
-                  className="disabled:cursor-not-allowed"
-                  onClick={() => crateConversationHandler(order)}
-                  disabled={loading}
-                >
-                  <Image
-                    className="object-cover"
-                    width={16}
-                    height={16}
-                    src="/assets/message.png"
-                    alt=""
-                  />
-                </button>
+                {currentUser?.id !== order.sellerId && (
+                  <button
+                    className="disabled:cursor-not-allowed"
+                    onClick={() => crateConversationHandler(order)}
+                    disabled={loading}
+                  >
+                    <Image
+                      className="object-cover"
+                      width={16}
+                      height={16}
+                      src="/assets/message.png"
+                      alt=""
+                    />
+                  </button>
+                )}
               </td>
             </tr>
           ))}

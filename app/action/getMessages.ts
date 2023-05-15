@@ -13,7 +13,7 @@ export const getMessages = async (params: Params) => {
         conversationId: id,
       },
       orderBy: {
-        createdAt: "desc",
+        createdAt: "asc",
       },
       include: {
         user: true,
