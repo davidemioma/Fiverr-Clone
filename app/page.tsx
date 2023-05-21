@@ -121,7 +121,7 @@ const Home = () => {
           <div className="flex flex-col lg:flex-row items-center gap-20">
             <div className="flex flex-col space-y-4 text-xs md:text-sm">
               <h1 className="text-lg md:text-xl font-medium">
-                liverr <i>business</i>
+                Fiverr <i>business</i>
               </h1>
 
               <h1 className="text-lg md:text-xl font-medium">
@@ -171,7 +171,7 @@ const Home = () => {
 
               <div className="flex justify-center lg:justify-start">
                 <button className="bg-[#1dbf73] px-4 py-2 rounded font-medium">
-                  Explore Liverr Business
+                  Explore Fiverr Business
                 </button>
               </div>
             </div>
