@@ -41,7 +41,7 @@ const Nav = ({ currentUser }: Props) => {
     <nav
       className={`${
         show ? "bg-white text-black" : "bg-[#013914] text-white"
-      } sticky top-0 z-40 transition-all duration-400 ease`}
+      } sticky top-0 z-40 transition-all duration-500 ease-in-out`}
     >
       <Container>
         <div className="flex items-center justify-between py-4">
