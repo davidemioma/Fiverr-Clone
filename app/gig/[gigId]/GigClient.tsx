@@ -206,6 +206,14 @@ const GigClient = ({ gig, currentUser, reviews }: Props) => {
 
         <p className="text-sm text-[#555] font-light">{gig.shortDesc}</p>
 
+        <div className="flex flex-col gap-3 text-sm mb-4">
+          <p>Stripe Test Card: 4242 4242 4242 4242</p>
+
+          <p>Stripe Test Expiry: 4/24 (anything in the future)</p>
+
+          <p>Stripe Test CVC: 242 (any 3 digit number)</p>
+        </div>
+
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-1.5 text-sm">
             <img
